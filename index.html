@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product card</title>
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
+
 <body>
     <main class="container">
         <div class="imgBox">
-            <img src="./assets/img/nike-blue.png" alt="Zapato deportivo Nike color azul, para correr">
+            <img src="./assets/img/nike-blue.png" alt="Zapato deportivo Nike color azul, para correr" id="sneaker">
+            <div class="colors">
+                <button class="btn black" id="black"></button>
+                <button class="btn green" id="green"></button>
+                <button class="btn blue" id="blue"></button>
+                <button class="btn orange" id="orange"></button>
+                <button class="btn red" id="red"></button>
+            </div>
         </div>
         <div class="details">
             <h2>Nike Zoom 2020 <span>Runnin collection</span></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit non esse quas qui quo tempora dignissimos earum soluta reiciendis excepturi, autem modi distinctio, deleniti at officia amet atque neque incidunt?Voluptatibus aliquam itaque tempore corporis, saepe et expedita sed atque. Ipsa ducimus excepturi, quos molestiae, animi neque commodi esse hic, ad perferendis a repudiandae laboriosam suscipit impedit voluptatibus. Qui, ipsam?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit non esse quas qui quo tempora
+                dignissimos earum soluta reiciendis excepturi, autem modi distinctio, deleniti at officia amet atque
+                neque incidunt?Voluptatibus aliquam itaque tempore corporis, saepe et expedita sed atque. Ipsa ducimus
+                excepturi, quos molestiae, animi neque commodi esse hic, ad perferendis a repudiandae laboriosam
+                suscipit impedit voluptatibus. Qui, ipsam?</p>
             <h3>$2500</h3>
             <button>Buy now</button>
         </div>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function (event) {
+            let buttons = document.querySelectorAll('.btn');
+            let body = document.querySelector('body');
+            let sneaker = document.querySelector('#sneaker');
+
+            buttons.forEach((item) => {
+                item.addEventListener('click', function () {
+                    body.className = '';
+                    body.classList.add('imgBox');
+                    body.classList.add(item.id);
+                    sneaker.setAttribute('src', `./assets/img/nike-${item.id}.png`);
+                });
+            });
+        });
+
+    </script>
 </body>
+
 </html>
